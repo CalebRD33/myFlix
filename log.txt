@@ -1,39 +1,4 @@
-
-URL: /
-Timestamp: Fri Jun 07 2024 17:26:43 GMT-0700 (Pacific Daylight Time)
-
-URL: /dist/minified.css
-Timestamp: Fri Jun 07 2024 17:26:43 GMT-0700 (Pacific Daylight Time)
-
-URL: /favicon.ico
-Timestamp: Fri Jun 07 2024 17:26:43 GMT-0700 (Pacific Daylight Time)
-
-URL: /documentation
-Timestamp: Fri Jun 07 2024 17:28:42 GMT-0700 (Pacific Daylight Time)
-
-URL: /dist/minified.css
-Timestamp: Fri Jun 07 2024 17:28:42 GMT-0700 (Pacific Daylight Time)
-
-URL: /favicon.ico
-Timestamp: Fri Jun 07 2024 17:28:42 GMT-0700 (Pacific Daylight Time)
-
-
-
-URL: /documentation
-Timestamp: Fri Jun 07 2024 18:14:28 GMT-0700 (Pacific Daylight Time)
-
-URL: /dist/minified.css
-Timestamp: Fri Jun 07 2024 18:14:28 GMT-0700 (Pacific Daylight Time)
-
-URL: /favicon.ico
-Timestamp: Fri Jun 07 2024 18:14:28 GMT-0700 (Pacific Daylight Time)
-
-URL: /
-Timestamp: Fri Jun 07 2024 18:14:35 GMT-0700 (Pacific Daylight Time)
-
-URL: /dist/minified.css
-Timestamp: Fri Jun 07 2024 18:14:35 GMT-0700 (Pacific Daylight Time)
-
-URL: /favicon.ico
-Timestamp: Fri Jun 07 2024 18:14:36 GMT-0700 (Pacific Daylight Time)
-
+::1 - - [09/Jun/2024:20:33:51 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+::1 - - [09/Jun/2024:20:34:00 +0000] "GET /movies HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+::1 - - [09/Jun/2024:20:34:12 +0000] "GET /documentation.html HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+::1 - - [09/Jun/2024:20:34:12 +0000] "GET /dist/minified.css HTTP/1.1" 404 156 "http://localhost:8080/documentation.html" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
