@@ -5,6 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">  
     <link rel="stylesheet" type="text/css" href="dist/minified.css">
     <title>Documentation</title>
+
+    <style>
+        table {
+            width: 75%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 
 
@@ -22,3 +37,95 @@
 <h2>Versions</h2>
 <p>Version 1: Initial Deployment  6/7/2024</p>
 
+<h2>Endpoints</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Business Logic</th>
+            <th>URL</th>
+            <th>HTTP Method</th>
+            <th>Request Body Data Format</th>
+            <th>Response Body Data Format</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Navigate to homepage</td>
+            <td>/</td>
+            <td>GET</td>
+            <td>None</td>
+            <td>HTML page index.html</td>
+        </tr>
+        <tr>
+            <td>Navigate to documentation page</td>
+            <td>/documentation.html</td>
+            <td>use(express.static('public'))</td>
+            <td>None</td>
+            <td>HTML page documentation.html</td>
+        </tr>
+        <tr>
+            <td>Return a list of all movies to the user</td>
+            <td>/movies</td>
+            <td>GET</td>
+            <td>None</td>
+            <td>A JSON object holding data about all the movies</td>
+        </tr>
+        <tr>
+            <td>Return data about single movie by title to the user</td>
+            <td>/movies/[title]</td>
+            <td>GET</td>
+            <td>None</td>
+            <td>A JSON object holding data about a single movie, containing a description, genre, director, image URL, and whether it's featured or not</td>
+        </tr>
+        <tr>
+            <td>Return data about a genre description by genre name</td>
+            <td>/movies/genre/[Genre Name]</td>
+            <td>GET</td>
+            <td>None</td>
+            <td>A JSON object holding data about genre name and description</td>
+        </tr>
+        <tr>
+            <td>Return data about a director, containing bio, birth year, and death year by name</td>
+            <td>/movies/director/[Director Name]</td>
+            <td>GET</td>
+            <td>None</td>
+            <td>A JSON object holding data director name and info</td>
+        </tr>
+        <tr>
+            <td>Allow new users to register</td>
+            <td>/users</td>
+            <td>POST</td>
+            <td>A JSON object holding data about the new user to add, structured like:</td>
+            <td>A JSON object holding data about the new user that was added, including an ID:</td>
+        </tr>
+        <tr>
+            <td>Allow users to update their username</td>
+            <td>/users</td>
+            <td>PUT</td>
+            <td>None</td>
+            <td>A text message indicating the user name change</td>
+        </tr>
+        <tr>
+            <td>Allow users to add a movie to their list of favorites</td>
+            <td>/users/[ID]/[Movie Title]</td>
+            <td>POST</td>
+            <td>Place user ID and Title in the URL as follows: /users/2/Superbad</td>
+            <td>A text message that the movie has been added</td>
+        </tr>
+        <tr>
+            <td>Allow users to remove a movie to their list of favorites</td>
+            <td>/users/[ID]/[Movie Title]</td>
+            <td>DELETE</td>
+            <td>Place user ID and Title in the URL as follows: /users/2/Superbad</td>
+            <td>A text message that the movie has been removed</td>
+        </tr>
+        <tr>
+            <td>Allow existing users to deregister</td>
+            <td>/users/[ID]</td>
+            <td>DELETE</td>
+            <td>Place user ID in the URL as follows: /users/2</td>
+            <td>A text message that the user email has been removed</td>
+        </tr>
+    </tbody>
+</table>
