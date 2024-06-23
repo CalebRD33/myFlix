@@ -73,10 +73,10 @@
         </tr>
         <tr>
             <td>Return data about single movie by title to the user</td>
-            <td>/movies/[title]</td>
+            <td>/movies/[Title]</td>
             <td>GET</td>
             <td>None</td>
-            <td>A JSON object holding data about a single movie, containing a description, genre, director, image URL, and whether it's featured or not</td>
+            <td>A JSON object holding data about a single movie</td>
         </tr>
         <tr>
             <td>Return data about a genre description by genre name</td>
@@ -86,46 +86,67 @@
             <td>A JSON object holding data about genre name and description</td>
         </tr>
         <tr>
-            <td>Return data about a director, containing bio, birth year, and death year by name</td>
+            <td>Return data about a particular director by name</td>
             <td>/movies/director/[Director Name]</td>
             <td>GET</td>
             <td>None</td>
-            <td>A JSON object holding data director name and info</td>
+            <td>A JSON object holding data about the chosen director</td>
         </tr>
         <tr>
             <td>Allow new users to register</td>
             <td>/users</td>
             <td>POST</td>
-            <td>A JSON object holding data about the new user to add, structured like:</td>
-            <td>A JSON object holding data about the new user that was added, including an ID:</td>
+            <td>A JSON object holding data about the new user to add, structured like:<br>
+                {
+                    "Username" : "Javid",
+                    "Password" : "password777",
+                    "Email" : "Javid@gmail.com",
+                    "Birthday" : "1989-02-19"
+                }
+            </td>
+            <td>A JSON object holding data about the new user that was added, including an ID:<br>
+                {
+                    "Username": "Javid",
+                    "Password": "password777",
+                    "Email": "Javid@gmail.com",
+                    "Birthday": "1989-02-19T00:00:00.000Z",
+                    "FavoriteMovies": [],
+                    "_id": "6678724ba550664deda91945",
+                    "__v": 0
+                }
+            </td>
         </tr>
         <tr>
-            <td>Allow users to update their username</td>
-            <td>/users</td>
+            <td>Allow users to update their user info</td>
+            <td>/users/[Username]</td>
             <td>PUT</td>
-            <td>None</td>
-            <td>A text message indicating the user name change</td>
+            <td>A JSON object holding data about the info you would like to change:<br>
+                {
+                    "Password" : "password888"    
+                }
+            </td>
+            <td>A text message indicating the info has been updated</td>
         </tr>
         <tr>
             <td>Allow users to add a movie to their list of favorites</td>
-            <td>/users/[ID]/[Movie Title]</td>
+            <td>/users/[Username]/movies/[Movie ID]</td>
             <td>POST</td>
-            <td>Place user ID and Title in the URL as follows: /users/2/Superbad</td>
-            <td>A text message that the movie has been added</td>
+            <td>Place Username and Movie ID in the URL as follows: /users/Javid/movies/6671d2e911ecb9fd4890df00</td>
+            <td>A JSON object showing that the MovieID has been added to the FavoriteMovies array</td>
         </tr>
         <tr>
             <td>Allow users to remove a movie to their list of favorites</td>
-            <td>/users/[ID]/[Movie Title]</td>
+            <td>/users/[Username]/movies/[Movie ID]</td>
             <td>DELETE</td>
-            <td>Place user ID and Title in the URL as follows: /users/2/Superbad</td>
-            <td>A text message that the movie has been removed</td>
+            <td>Place user ID and Title in the URL as follows: /users/Javid/movies/6671d2e911ecb9fd4890df00</td>
+            <td>A JSON object showing that the MovieID is no longer in the FavoriteMovies array</td>
         </tr>
         <tr>
             <td>Allow existing users to deregister</td>
-            <td>/users/[ID]</td>
+            <td>/users/[Username]</td>
             <td>DELETE</td>
-            <td>Place user ID in the URL as follows: /users/2</td>
-            <td>A text message that the user email has been removed</td>
+            <td>Place username in the URL as follows: /users/Javid</td>
+            <td>A text message that the user has been removed</td>
         </tr>
     </tbody>
 </table>
