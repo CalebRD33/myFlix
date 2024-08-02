@@ -123,10 +123,8 @@ app.post('/users',
 // UPDATE - change user information by username
 app.put('/users/:Username', passport.authenticate('jwt', { session: false }), 
 [
-    check('Username', 'Username is required').isLength({min: 5}),
-    check('Username', 'Username contains non alphanumeric characters - not allowed').isAlphanumeric(),
-    check('Password', 'Password is required').not().isEmpty(),
-    
+    check('Username', 'Username contains non alphanumeric characters - not allowed').isAlphanumeric()
+            
 ], async (req, res) => {
     let hashedPassword = Users.hashPassword(req.body.Password);
     let errors = validationResult(req);
