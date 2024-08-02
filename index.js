@@ -122,7 +122,7 @@ app.post('/users',
 
 // UPDATE - change user information by username
 app.put('/users/:Username', passport.authenticate('jwt', { session: false }), async (req, res) => {
-    let hashedPassword = Users.hashPassword(req.body.Password);    
+    //let hashedPassword = Users.hashPassword(req.body.Password);    
 
     if(req.user.Username !== req.params.Username){
         return res.status(400).send('Permission denied');
@@ -131,7 +131,7 @@ app.put('/users/:Username', passport.authenticate('jwt', { session: false }), as
     {$set:
         {
             Username: req.body.Username,
-            Password: hashedPassword,
+            Password: req.body.Password,
             Email: req.body.Email,
             Birthday: req.body.Birthday
         }
