@@ -82,7 +82,7 @@ app.get('/movies/director/:directorName', passport.authenticate('jwt', { session
 
 
 app.get('/users/:Username', passport.authenticate('jwt', { session: false }), async (req, res) => {
-    await Users.findOne({ _id: req.params._id })
+    await Users.findOne({ Username: req.params.Username })
     .then((user) => {
         res.json(user);
     })
