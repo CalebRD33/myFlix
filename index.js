@@ -134,7 +134,7 @@ app.post('/users',
 
 // UPDATE - change user information by username
 app.put('/users/:Username', passport.authenticate('jwt', { session: false }), async (req, res) => {
-    let hashedPassword = Users.hashPassword(req.body.Password);    
+    //let hashedPassword = Users.hashPassword(req.body.Password);    
     let errors = validationResult(req);
     
     if (!errors.isEmpty()) {
@@ -147,7 +147,7 @@ app.put('/users/:Username', passport.authenticate('jwt', { session: false }), as
     {$set:
         {
             Username: req.body.Username,
-            Password: hashedPassword,
+            //Password: hashedPassword,
             Email: req.body.Email,
             Birthday: req.body.Birthday
         }
