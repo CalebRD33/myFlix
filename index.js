@@ -80,6 +80,18 @@ app.get('/movies/director/:directorName', passport.authenticate('jwt', { session
     });
 });
 
+
+app.get('/users/:Username', passport.authenticate('jwt', { session: false }), async (req, res) => {
+    await Users.findOne({ _id: req.params._id })
+    .then((user) => {
+        res.json(user);
+    })
+    .catch((err) => {
+        console.error(err);
+        res.status(500).send('Error: ' + err);
+    });
+});
+
 // CREATE - add new user
 app.post('/users', 
 [
@@ -122,8 +134,12 @@ app.post('/users',
 
 // UPDATE - change user information by username
 app.put('/users/:Username', passport.authenticate('jwt', { session: false }), async (req, res) => {
-    //let hashedPassword = Users.hashPassword(req.body.Password);    
-
+    let hashedPassword = Users.hashPassword(req.body.Password);    
+    let errors = validationResult(req);
+    
+    if (!errors.isEmpty()) {
+        return res.status(422).json({ errors: errors.array() });
+    };
     if(req.user.Username !== req.params.Username){
         return res.status(400).send('Permission denied');
     }
@@ -131,7 +147,7 @@ app.put('/users/:Username', passport.authenticate('jwt', { session: false }), as
     {$set:
         {
             Username: req.body.Username,
-            Password: req.body.Password,
+            Password: hashedPassword,
             Email: req.body.Email,
             Birthday: req.body.Birthday
         }
